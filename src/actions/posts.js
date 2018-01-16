@@ -13,7 +13,7 @@ export const startAddPost = (postData = {}) => {
 			body = '',
 			author = '',
 			email = '',
-			tags = ''
+			tags = []
 		} = postData;
 		const post = {title, body, author, email, tags };
 

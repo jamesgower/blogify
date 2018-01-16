@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
 
 export default class BlogPostForm extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -14,34 +14,34 @@ export default class BlogPostForm extends React.Component {
 			author: props.post ? props.post.author : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
 			email: props.post ? props.post.email : '',
-			tags: props.post ? props.post.tags : []
+			tags: props.post ? props.post.tags : [],
 		};
 	}
 
-	onTitleChange = (e) => {
+	onTitleChange = e => {
 		const title = e.target.value;
-		this.setState(() => ({title}));
-	}
+		this.setState(() => ({ title }));
+	};
 
-	handleChange = (value) => {
+	handleChange = value => {
 		this.setState(() => ({ body: value }));
-	}
+	};
 
-	onAuthorChange = (e) => {
+	onAuthorChange = e => {
 		const author = e.target.value;
-		this.setState(() => ({author}));		
-	}
+		this.setState(() => ({ author }));
+	};
 
-	onEmailChange = (e) => {
+	onEmailChange = e => {
 		const email = e.target.value;
-		this.setState(() => ({email}));		
-	}
+		this.setState(() => ({ email }));
+	};
 
-	handleTagChange = (tags) => {
+	handleTagChange = tags => {
 		this.setState(() => ({ tags }));
-	}
+	};
 
-	onSubmit = (e) => {
+	onSubmit = e => {
 		e.preventDefault();
 		this.props.onSubmit({
 			title: this.state.title,
@@ -49,9 +49,9 @@ export default class BlogPostForm extends React.Component {
 			author: this.state.author,
 			email: this.state.email,
 			createdAt: this.state.createdAt.valueOf(),
-			tags: this.state.tags
+			tags: this.state.tags,
 		});
-	}
+	};
 
 	render() {
 		return (
@@ -69,21 +69,26 @@ export default class BlogPostForm extends React.Component {
 				<input
 					type="text"
 					className="text-input"
-					placeholder=""
+					placeholder="Enter Author name"
 					value={this.state.author}
 					onChange={this.onAuthorChange}
 				/>
 				<input
-					type="text"
+					type="email"
 					className="text-input"
-					placeholder=""
+					placeholder="Enter email address of Author"
 					value={this.state.email}
 					onChange={this.onEmailChange}
 				/>
-				<TagsInput value={this.state.tags} onChange={this.handleTagChange} />
-				<button className="button">
-					Add Post
-				</button>
+				<TagsInput
+					value={this.state.tags}
+					onChange={this.handleTagChange}
+					onlyUnique={true}
+					addOnPaste={true}
+				/>
+				<div>
+					<button className="button">{this.props.post ? 'Save Post' : 'Add Post'}</button>
+				</div>
 			</form>
 		);
 	}

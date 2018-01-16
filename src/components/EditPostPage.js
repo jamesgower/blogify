@@ -32,7 +32,9 @@ export class EditPostPage extends React.Component {
 						onSubmit={this.onSubmit}
 					/>
 				</div>
-				<button className="button__secondary" onClick={this.onRemove}>Remove Post</button>
+				<div className="button__container">
+					<button className="button__secondary" onClick={this.onRemove}>Remove Post</button>
+				</div>
 			</div>
 		);
 	}
