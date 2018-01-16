@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default class BlogPostForm extends React.Component {
 	constructor(props){
@@ -19,9 +21,8 @@ export default class BlogPostForm extends React.Component {
 		this.setState(() => ({title}));
 	}
 
-	onBodyChange = (e) => {
-		const body = e.target.value;
-		this.setState(() => ({body}));		
+	handleChange = (value) => {
+		this.setState(() => ({ body: value }));
 	}
 
 	onAuthorChange = (e) => {
@@ -51,18 +52,13 @@ export default class BlogPostForm extends React.Component {
 				<input
 					type="text"
 					className="text-input"
-					placeholder=""
+					placeholder="Title"
 					autoFocus
 					value={this.state.title}
 					onChange={this.onTitleChange}
 				/>
-				<input
-					type="text"
-					className="text-input"
-					placeholder=""
-					value={this.state.body}
-					onChange={this.onBodyChange}
-				/>
+				<ReactQuill value={this.state.body} onChange={this.handleChange} className="editor" />
+
 				<input
 					type="text"
 					className="text-input"

@@ -48,9 +48,9 @@ export const editPost = (id, updates) => ({
 export const startEditPost = (id, updates) => {
 	return(dispatch, getState) => {
 		const uid = getState().auth.uid;
-		return database.ref(`users/${uid}/posts/${id}`.update(updates).then(() => {
+		return database.ref(`users/${uid}/posts/${id}`).update(updates).then(() => {
 			dispatch(editPost(id, updates));
-		}));
+		});
 	};
 };
 
