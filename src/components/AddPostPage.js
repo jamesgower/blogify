@@ -4,7 +4,7 @@ import BlogPostForm from './BlogPostForm';
 import { startAddPost } from '../actions/posts';
 
 export class AddPostPage extends React.Component {
-	onSubmit = post => {
+	onSubmit = (post) => {
 		this.props.startAddPost(post);
 		this.props.history.push('/');
 	};

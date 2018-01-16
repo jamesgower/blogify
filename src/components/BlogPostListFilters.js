@@ -66,12 +66,12 @@ const mapStateToProps = (state) => ({
 	filters: state.filters
 });
 
-const mapDispatchToProps = (dispatch) => ({
-	setTextFilter: (text) => dispatch.setTextFilter(text),
+const mapDispatchToProps = dispatch => ({
+	setTextFilter: text => dispatch(setTextFilter(text)),
+	setStartDate: startDate => dispatch(setStartDate(startDate)),
+	setEndDate: endDate => dispatch(setEndDate(endDate)),
 	sortByTitle: () => dispatch(sortByTitle()),
 	sortByTags: () => dispatch(sortByTags()),
-	setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-	setEndDate: (endDate) => dispatch(setEndDate(endDate))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogPostListFilters);

@@ -40,7 +40,8 @@ export default class BlogPostForm extends React.Component {
 			title: this.state.title,
 			body: this.state.body,
 			author: this.state.author,
-			email: this.state.email
+			email: this.state.email,
+			createdAt: this.state.createdAt.valueOf()
 		});
 	}
 
