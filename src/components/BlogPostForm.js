@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import TagsInput from 'react-tagsinput';
 
 export default class BlogPostForm extends React.Component {
 	constructor(props){
@@ -12,7 +13,8 @@ export default class BlogPostForm extends React.Component {
 			body: props.post ? props.post.body : '',
 			author: props.post ? props.post.author : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
-			email: props.post ? props.post.email : ''
+			email: props.post ? props.post.email : '',
+			tags: props.post ? props.post.tags : []
 		};
 	}
 
@@ -35,6 +37,10 @@ export default class BlogPostForm extends React.Component {
 		this.setState(() => ({email}));		
 	}
 
+	handleTagChange = (tags) => {
+		this.setState(() => ({ tags }));
+	}
+
 	onSubmit = (e) => {
 		e.preventDefault();
 		this.props.onSubmit({
@@ -42,7 +48,8 @@ export default class BlogPostForm extends React.Component {
 			body: this.state.body,
 			author: this.state.author,
 			email: this.state.email,
-			createdAt: this.state.createdAt.valueOf()
+			createdAt: this.state.createdAt.valueOf(),
+			tags: this.state.tags
 		});
 	}
 
@@ -73,6 +80,7 @@ export default class BlogPostForm extends React.Component {
 					value={this.state.email}
 					onChange={this.onEmailChange}
 				/>
+				<TagsInput value={this.state.tags} onChange={this.handleTagChange} />
 				<button className="button">
 					Add Post
 				</button>

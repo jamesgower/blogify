@@ -8,10 +8,26 @@
     line-height: 1;
     padding: $s-size;    
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .button__link {
     background: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.button__success {
+    @extend .button;
+    background: #68d321;
+    width: 60px;
+}
+
+.button__fail {
+    @extend .button;
+    background: #ef3726;
+    width: 60px;    
 }
 
 .button__secondary {
@@ -21,12 +37,46 @@
     display: block;
     right: 0;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
 }
 
 .button__container {
     max-width: 77rem;
     margin: 0 auto;
     position: relative;
-    background: blue;
+}
+
+.button-modal__container {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.button__login {
+    @extend .button;
+    width: 230px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.button__login--google {
+    background: #ff4242;
+}
+
+.button__login--github {
+    background: #000000;
+}
+
+.button__login--facebook {
+    background: #4761a2;
+}
+
+.button__login--twitter {
+    background: #1f9fee;
+}
+
+.fa {
+    float: left;
 }

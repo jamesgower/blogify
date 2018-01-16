@@ -12,9 +12,10 @@ export const startAddPost = (postData = {}) => {
 			title = '',
 			body = '',
 			author = '',
-			email = ''
+			email = '',
+			tags = ''
 		} = postData;
-		const post = {title, body, author, email };
+		const post = {title, body, author, email, tags };
 
 		return database.ref(`users/${uid}/posts`).push(post).then((ref) => {
 			dispatch(addPost({
