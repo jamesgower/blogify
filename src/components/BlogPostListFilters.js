@@ -33,7 +33,7 @@ export class BlogPostListFilters extends React.Component {
 						<input
 							type="text"
 							className="text-input text-input--search"
-							placeholder="Filter by title"
+							placeholder= {this.props.filters.sortBy === 'tags' ? 'Filter by Tags' : 'Filter by Title' }
 							value={this.props.filters.text}
 							onChange={this.onTextChange}
 						/>

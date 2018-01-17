@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import getTags from '../selectors/tags';
 
 const BlogListItem = ({ id, title, body, tags, author, email, createdAt }) => {
 	return (
@@ -8,10 +9,11 @@ const BlogListItem = ({ id, title, body, tags, author, email, createdAt }) => {
 			<div>
 				<h3 className="list-item__title">{title}</h3>
 				<h5>
-					Written by {author} on{createdAt}
-					<span className="list-item__subtitle">{moment(createdAt).format('do MMMM, YYYY')}</span>
+					Written by {author} on
+					<span className="list-item__subtitle"> {moment(createdAt).format('do MMMM, YYYY')}</span> - {email}
 				</h5>
-				<h1>{tags}</h1>
+				<div className="list-item__right"> {tags.map((tag) => <label className='react-tags' key={tag}> {tag} </label>)} </div>
+
 			</div>
 		</Link>
 	);

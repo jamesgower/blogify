@@ -1,3 +1,18 @@
+$s-min: 20;
+$s-max: 70;
+$l-min: 30;
+$l-max: 90;
+
+
+@for $i from 1 through 100 {
+    label:nth-child(#{$i}) {
+      background-color: darken(hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min)), 30%) !important;
+      color: white !important;
+      border: none !important;      
+      @extend .react-tagsinput-tag
+    }
+}
+
 .react-tagsinput {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -18,10 +33,12 @@
   display: inline-block;
   font-family: sans-serif;
   font-size: 13px;
-  font-weight: 400;
   margin-bottom: 5px;
   margin-right: 5px;
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
+  min-width: 40px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .react-tagsinput-remove {
