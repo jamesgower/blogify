@@ -10,6 +10,24 @@
     width: 28rem;
 }
 
+.text-input--author {
+    width: 48%;
+    float: left;
+}
+
+.text-input--email {
+    width: 48%;
+    float: right;
+    
+}
+
+.text-input--tags {
+    float: left;
+    width: 60%;
+    height: 50px;
+}
+
+
 .select {
     @extend .text-input;
 }

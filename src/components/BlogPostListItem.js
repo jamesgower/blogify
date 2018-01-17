@@ -10,9 +10,10 @@ const BlogListItem = ({ id, title, body, tags, author, email, createdAt }) => {
 				<h3 className="list-item__title">{title}</h3>
 				<h5>
 					Written by {author} on
-					<span className="list-item__subtitle"> {moment(createdAt).format('do MMMM, YYYY')}</span> - {email}
+					<span className="list-item__subtitle"> {moment(createdAt).format('DD MMMM, YYYY')}</span>
 				</h5>
-				<div className="list-item__right"> {tags.map((tag) => <label className='react-tags' key={tag}> {tag} </label>)} </div>
+				<h6 className="list-item__email"> -{email}</h6>
+				<div className="list-item__tags"> {tags.map((tag) => <label className='react-tags' key={tag}> {tag} </label>)} </div>
 
 			</div>
 		</Link>
