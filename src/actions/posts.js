@@ -10,13 +10,14 @@ export const startAddPost = (postData = {}) => {
 		const uid = getState().auth.uid;
 		const {
 			title = '',
+			overview = '',
 			body = '',
 			author = '',
 			email = '',
 			tags = [],
 			createdAt = 0
 		} = postData;
-		const post = {title, body, author, email, tags, createdAt };
+		const post = {title, overview, body, author, email, tags, createdAt };
 
 		return database.ref(`users/${uid}/posts`).push(post).then((ref) => {
 			dispatch(addPost({

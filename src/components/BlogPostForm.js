@@ -5,21 +5,22 @@ import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
 import { SingleDatePicker } from 'react-dates';
 
-
 export default class BlogPostForm extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			title: props.post ? props.post.title : '',
+			overview: props.post ? props.post.overview : '',
 			body: props.post ? props.post.body : '',
 			author: props.post ? props.post.author : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
 			email: props.post ? props.post.email : '',
 			tags: props.post ? props.post.tags : [],
-			calendarFocused: false
+			calendarFocused: false,
+			error: '',
 		};
-	}	
+	}
 
 	onTitleChange = e => {
 		const title = e.target.value;
@@ -44,6 +45,11 @@ export default class BlogPostForm extends React.Component {
 		this.setState(() => ({ tags }));
 	};
 
+	onOverviewChange = e => {
+		const overview = e.target.value;
+		this.setState(() => ({ overview }));
+	};
+
 	//Date Picker
 	onDateChange = createdAt => {
 		if (createdAt) {
@@ -57,15 +63,22 @@ export default class BlogPostForm extends React.Component {
 
 	onSubmit = e => {
 		e.preventDefault();
-		this.props.onSubmit({
-			title: this.state.title,
-			overview: this.state.overview,
-			body: this.state.body,
-			author: this.state.author,
-			email: this.state.email,
-			createdAt: this.state.createdAt.valueOf(),
-			tags: this.state.tags,
-		});
+		if (this.state.tags.length === 0) {
+			const tagsInput = document.getElementById('tags-input');
+			this.setState(() => ({ error: 'Please provide at least one tag' }));
+			tagsInput.className = 'form-error';
+		} else {
+			this.setState(() => ({ error: '' }));
+			this.props.onSubmit({
+				title: this.state.title,
+				overview: this.state.overview,
+				body: this.state.body,
+				author: this.state.author,
+				email: this.state.email,
+				createdAt: this.state.createdAt.valueOf(),
+				tags: this.state.tags,
+			});
+		}
 	};
 	render() {
 		return (
@@ -77,6 +90,13 @@ export default class BlogPostForm extends React.Component {
 					autoFocus
 					value={this.state.title}
 					onChange={this.onTitleChange}
+				/>
+				<input
+					type="text"
+					className="text-input"
+					placeholder="Enter the overview of the current post"
+					value={this.state.overview}
+					onChange={this.onOverviewChange}
 				/>
 				<ReactQuill value={this.state.body} onChange={this.handleChange} className="editor" />
 				<div>
@@ -96,14 +116,15 @@ export default class BlogPostForm extends React.Component {
 					/>
 				</div>
 				<div>
-					<TagsInput
-						value={this.state.tags}
-						onChange={this.handleTagChange}
-						onlyUnique={true}
-						addOnPaste={true}
-						className="react-tagsinput"
-					/>
-				
+					<div id="tags-input">
+						<TagsInput
+							value={this.state.tags}
+							onChange={this.handleTagChange}
+							onlyUnique={true}
+							addOnPaste={true}
+							className="react-tagsinput"
+						/>
+					</div>
 					<SingleDatePicker
 						date={this.state.createdAt}
 						onDateChange={this.onDateChange}
@@ -115,7 +136,6 @@ export default class BlogPostForm extends React.Component {
 						id="singleDatePicker"
 					/>
 				</div>
-
 				<div>
 					<button className="button">{this.props.post ? 'Save Post' : 'Add Post'}</button>
 				</div>

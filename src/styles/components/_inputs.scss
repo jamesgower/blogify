@@ -23,7 +23,7 @@
 
 .text-input--tags {
     float: left;
-    width: 60%;
+    width: 100%;
     height: 50px;
 }
 
@@ -35,4 +35,25 @@
 .textarea {
     @extend .text-input;
     height: 10rem;
+}
+
+.form-error {
+    margin-top: -2px;
+    border: 2px solid red;
+    margin-bottom: 20px;
+    height: 55px !important;
+
+}
+
+#tags-input {
+    width: 60%;
+    height: 50px;
+    padding-left: 1px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#tagsAndDate {
+    display: inline-block;
+    width: 100%;
 }
