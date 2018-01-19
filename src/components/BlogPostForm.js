@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
 import { SingleDatePicker } from 'react-dates';
+import QuillEditor from './QuillEditor';
 
 export default class BlogPostForm extends React.Component {
 	constructor(props) {
@@ -22,13 +23,15 @@ export default class BlogPostForm extends React.Component {
 		};
 	}
 
+	onUpdate = (val) => {
+		this.setState({
+			body: val
+		});
+	}
+
 	onTitleChange = e => {
 		const title = e.target.value;
 		this.setState(() => ({ title }));
-	};
-
-	handleChange = value => {
-		this.setState(() => ({ body: value }));
 	};
 
 	onAuthorChange = e => {
@@ -98,7 +101,7 @@ export default class BlogPostForm extends React.Component {
 					value={this.state.overview}
 					onChange={this.onOverviewChange}
 				/>
-				<ReactQuill value={this.state.body} onChange={this.handleChange} className="editor" />
+				<QuillEditor passedBody={this.state.body} onUpdate={this.onUpdate} />
 				<div>
 					<input
 						type="text"

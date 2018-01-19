@@ -1,0 +1,26 @@
+.SingleDatePicker {
+    float: right !important;
+    width: 36% !important;
+    margin-left: 0;
+}
+
+.SingleDatePickerInput > .DateInput {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 80% !important;
+    text-align: center !important; 
+}
+
+
+.DateRangePickerInput {
+    width: 366px;
+    margin: 0;
+    padding: 0;
+    float: right !important;
+}
+
+.date-label {
+    float: right;
+    margin-top: 10px;
+}
