@@ -1,7 +1,9 @@
 .SingleDatePicker {
-    float: right !important;
-    width: 36% !important;
-    margin-left: 0;
+    width: 50% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    margin-top: 20px;
 }
 
 .SingleDatePickerInput > .DateInput {

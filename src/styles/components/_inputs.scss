@@ -22,7 +22,6 @@
 }
 
 .text-input--tags {
-    float: left;
     width: 100%;
     height: 50px;
 }
@@ -46,14 +45,9 @@
 }
 
 #tags-input {
-    width: 60%;
+    width: 100%;
     height: 50px;
     padding-left: 1px;
-    display: inline-block;
+    display: block;
     margin-bottom: 10px;
-}
-
-#tagsAndDate {
-    display: inline-block;
-    width: 100%;
 }

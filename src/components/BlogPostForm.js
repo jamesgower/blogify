@@ -23,11 +23,11 @@ export default class BlogPostForm extends React.Component {
 		};
 	}
 
-	onUpdate = (val) => {
+	onUpdate = val => {
 		this.setState({
-			body: val
+			body: val,
 		});
-	}
+	};
 
 	onTitleChange = e => {
 		const title = e.target.value;
@@ -118,16 +118,14 @@ export default class BlogPostForm extends React.Component {
 						onChange={this.onEmailChange}
 					/>
 				</div>
-				<div>
-					<div id="tags-input">
-						<TagsInput
-							value={this.state.tags}
-							onChange={this.handleTagChange}
-							onlyUnique={true}
-							addOnPaste={true}
-							className="react-tagsinput"
-						/>
-					</div>
+				<div id="tags-input">
+					<TagsInput
+						value={this.state.tags}
+						onChange={this.handleTagChange}
+						onlyUnique={true}
+						addOnPaste={true}
+						className="react-tagsinput"
+					/>
 					<SingleDatePicker
 						date={this.state.createdAt}
 						onDateChange={this.onDateChange}
@@ -139,8 +137,10 @@ export default class BlogPostForm extends React.Component {
 						id="singleDatePicker"
 					/>
 				</div>
-				<div>
-					<button className="button">{this.props.post ? 'Save Post' : 'Add Post'}</button>
+				<div className="content-container">
+					<div id="button-container--add">
+						<button className="button button--addPost">{this.props.post ? 'Save Post' : 'Add Post'}</button>
+					</div>
 				</div>
 			</form>
 		);

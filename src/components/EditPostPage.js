@@ -27,13 +27,14 @@ export class EditPostPage extends React.Component {
 					</div>
 				</div>
 				<div className="content-container">
-					<BlogPostForm 
-						post={this.props.post}
-						onSubmit={this.onSubmit}
-					/>
+					<BlogPostForm post={this.props.post} onSubmit={this.onSubmit} />
 				</div>
-				<div className="button__container">
-					<button className="button__secondary" onClick={this.onRemove}>Remove Post</button>
+				<div className="content-container">
+					<div id="button-container--remove">
+						<button className="button__secondary" onClick={this.onRemove}>
+							Remove Post
+						</button>
+					</div>
 				</div>
 			</div>
 		);
@@ -41,12 +42,12 @@ export class EditPostPage extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-	post: state.posts.find((post) => post.id === props.match.params.id)
+	post: state.posts.find(post => post.id === props.match.params.id),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
 	startEditPost: (id, post) => dispatch(startEditPost(id, post)),
-	startRemovePost: (data) => dispatch(startRemovePost(data))
+	startRemovePost: data => dispatch(startRemovePost(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPostPage);
