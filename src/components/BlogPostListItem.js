@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import getTags from '../selectors/tags';
 
-const BlogListItem = ({ id, title, overview, tags, author, email, createdAt }) => {
+const BlogPostListItem = ({ id, title, overview, tags, author, email, createdAt }) => {
 	return (
 		<Link className="list-item" to={`edit/${id}`}>
 			<div>
@@ -15,10 +15,9 @@ const BlogListItem = ({ id, title, overview, tags, author, email, createdAt }) =
 				</h5>
 				<h6 className="list-item__email"> -{email}</h6>
 				<div className="list-item__tags"> {tags.map((tag) => <label className='react-tags' key={tag}> {tag} </label>)} </div>
-
 			</div>
 		</Link>
 	);
 };
 
-export default BlogListItem;
+export default BlogPostListItem;

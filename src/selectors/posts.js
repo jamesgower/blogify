@@ -1,7 +1,7 @@
 import moment from 'moment';
 import checkTags from '../selectors/tags';
 
-export default (posts, {text, sortBy, startDate, endDate}) => {
+export const selectPosts = (posts, {text, sortBy, startDate, endDate}) => {
 	return posts.filter((post) => {
 		const createdAtMoment = moment(post.createdAt);
 		const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;

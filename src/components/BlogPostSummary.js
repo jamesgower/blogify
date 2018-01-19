@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectPosts from '../selectors/posts';
+import { selectPosts } from '../selectors/posts';
+
 
 export const BlogPostSummary = ({ postCount }) => {
 	const postWord = postCount === 1 ? 'post' : 'posts';

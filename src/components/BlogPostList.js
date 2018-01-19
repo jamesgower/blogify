@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BlogPostListItem from './BlogPostListItem';
-import selectPosts from '../selectors/posts';
+import { selectPosts } from '../selectors/posts';
 
 export const BlogPostList = props => (
 	<div className="content-container">
@@ -16,7 +16,7 @@ export const BlogPostList = props => (
 			) : (
 				props.posts.map((post) => {
 					return <BlogPostListItem key={post.id} {...post} />;
-				})
+				})				
 			)}
 		</div>
 	</div>
@@ -24,7 +24,7 @@ export const BlogPostList = props => (
 
 const mapStateToProps = (state) => {
 	return {
-		posts: selectPosts(state.posts, state.filters)
+		posts: selectPosts(state.posts, state.filters),
 	};
 };
 
