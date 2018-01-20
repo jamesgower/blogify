@@ -15,15 +15,9 @@ export class LoginPage extends React.Component {
 				<div className="box-layout__box">
 					<h1 className="box-layout__title">Boilerplate</h1>
 					<p>Tag line for app</p>
-					<button className="button button__login--google" onClick={this.props.startLoginWithGoogle}>
-						Login With Google
-					</button>
-					<button className="button button__login--facebook" onClick={this.props.startLoginWithFacebook}>
-						Login With Facebook
-					</button>
-					<Link to="/search" className="button" onClick={this.props.startGetAllPosts}>
-						Search
-					</Link>
+					<button onClick={startLoginWithGoogle} className="button__login button__login--google"><i className="fa fa-google" aria-hidden="true"></i>Login With Google</button>
+					<button onClick={startLoginWithFacebook} className="button__login button__login--facebook"><i className="fa fa-facebook" aria-hidden="true"></i>Login With Facebook</button>
+					<Link to="/search" className="button button__login" onClick={this.props.startGetAllPosts}><i className="fa fa-search"/>Search</Link>
 				</div>
 			</div>
 		);

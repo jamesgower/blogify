@@ -10,13 +10,14 @@
 
 .box-layout__box {
     background: fade-out(white, .15);
-    border-radius: 3px;
-    padding: $l-size $m-size;
+    border-radius: 10px;
+    padding: 30px;
     text-align: center;
-    width: 25rem;
+    width: 30rem;
 }
 
 .box-layout__title {
     margin: 0 0 $m-size 0;
     line-height: 1;   
 }
+
