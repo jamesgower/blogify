@@ -12,11 +12,6 @@ export const SearchPostSummary = ({ postCount }) => {
 				<h1 className="page-header__title">
 					Viewing <span>{postCount}</span> {postWord}.
 				</h1>
-				<div className="page-header__actions">
-					<Link className="button" to="/create">
-						Add Post
-					</Link>
-				</div>
 			</div>
 		</div>
 	);
