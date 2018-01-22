@@ -9,7 +9,6 @@ import PublicRoute from './PublicRoute';
 import AddPostPage from '../components/AddPostPage';
 import EditPostPage from '../components/EditPostPage';
 import ReadPost from '../components/ReadPost';
-import SearchDashboardPage from '../components/SearchDashboardPage';
 
 export const history = createHistory();
 
@@ -18,11 +17,10 @@ const AppRouter = () => (
 		<div>
 			<Switch>
 				<PublicRoute path="/" component={LoginPage} exact={true} />
-				<PrivateRoute path="/dashboard" component={BlogDashboardPage} />
+				<Route path="/dashboard" component={BlogDashboardPage} />
 				<PrivateRoute path="/create" component={AddPostPage} />
 				<PrivateRoute path="/edit/:id" component={EditPostPage} />
 				<PublicRoute path="/read/:id" component={ReadPost} />
-				<Route path="/search" component={SearchDashboardPage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</div>

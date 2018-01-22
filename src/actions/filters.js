@@ -9,9 +9,14 @@ export const sortByTags = () => ({
 	type: 'SORT_BY_TAGS',
 });
 
-// SORT_BY_AMOUNT
+// SORT_BY_TILE
 export const sortByTitle = () => ({
 	type: 'SORT_BY_TITLE',
+});
+
+//SORT_BY_AUTHOR
+export const sortByAuthor = () => ({
+	type: 'SORT_BY_AUTHOR'
 });
 
 // SET_START_DATE

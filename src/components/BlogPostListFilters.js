@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
-import { setTextFilter, sortByTags, sortByTitle, setStartDate, setEndDate } from '../actions/filters';
+import { setTextFilter, sortByTags, sortByTitle, setStartDate, setEndDate, sortByAuthor } from '../actions/filters';
 
 export class BlogPostListFilters extends React.Component {
 	state = {
@@ -22,6 +22,8 @@ export class BlogPostListFilters extends React.Component {
 			this.props.sortByTitle();
 		} else if (e.target.value === 'tags') {
 			this.props.sortByTags();
+		} else if(e.target.value === 'author') {
+			this.props.sortByAuthor();
 		}
 	};
 
@@ -33,15 +35,17 @@ export class BlogPostListFilters extends React.Component {
 						<input
 							type="text"
 							className="text-input text-input--search"
-							placeholder= {this.props.filters.sortBy === 'tags' ? 'Filter by Tags' : 'Filter by Title' }
+							placeholder= {this.props.filters.sortBy !== 'tags' ?  ( this.props.filters.sortBy === 'author' ?  'Filter by Author' : 'Filter by Title' ) : 'Filter by Tags'}
 							value={this.props.filters.text}
 							onChange={this.onTextChange}
 						/>
 					</div>
 					<div className="input-group__item">
+
 						<select className="select" value={this.props.filters.sortBy} onChange={this.onSortChange}>
 							<option value="title">Title</option>
 							<option value="tags">Tags</option>
+							{ this.props.auth.uid ? '' :  <option value="author">Author</option> }
 						</select>
 					</div>
 					<div className="input-group__item">
@@ -63,7 +67,9 @@ export class BlogPostListFilters extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-	filters: state.filters
+	filters: state.filters,
+	auth: state.auth,
+	search: state.search
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -72,6 +78,7 @@ const mapDispatchToProps = dispatch => ({
 	setEndDate: endDate => dispatch(setEndDate(endDate)),
 	sortByTitle: () => dispatch(sortByTitle()),
 	sortByTags: () => dispatch(sortByTags()),
+	sortByAuthor: () => dispatch(sortByAuthor())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogPostListFilters);
