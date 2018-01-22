@@ -7,7 +7,6 @@ const config = {
 	projectId: "react-16-blog",
 	storageBucket: "react-16-blog.appspot.com",
 	messagingSenderId: "688488618130"
-
 };
 
 firebase.initializeApp(config);
