@@ -1,12 +1,13 @@
 import React from 'react';
-import BlogPostSummary from './BlogPostSummary';
 import BlogPostListFilters from './BlogPostListFilters';
-import BlogPostList from './BlogPostList';
 import SearchPostsList from './SearchPostsList';
+import Header from './Header';
+import SearchPostSummary from './SearchPostSummary';
 
 const SearchDashboardPage = () => (
 	<div>
-		<BlogPostSummary />
+		<Header />
+		<SearchPostSummary />
 		<BlogPostListFilters />
 		<SearchPostsList />
 	</div>
