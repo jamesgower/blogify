@@ -1,15 +1,23 @@
-import hljs from 'highlight.js';
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import React from 'react';
 import '../styles/dracula.css';
+import hljs from 'highlight.js';
 
 export class QuillEditor extends React.Component {
 	constructor(props) {
 		super(props);
+
+		hljs.configure({
+			// optionally configure hljs
+			languages: ['javascript', 'css', 'html'],
+			tabReplace: '    ',
+		});
+		hljs.initHighlighting();
 		
 		this.state = {
 			body: props.passedBody ? props.passedBody : '',
 			modules: {
+				syntax: true,
 				toolbar: [
 					[{ header: [1, 2, 3, 4, 5, false] }],
 					['bold', 'italic', 'underline', 'strike', 'blockquote'],
@@ -19,6 +27,7 @@ export class QuillEditor extends React.Component {
 					[{ align: 'center' }],
 					[{ align: 'justify' }],
 					[{ align: 'right' }],
+					['code-block'],					
 				],
 			},
 			theme: 'snow',
