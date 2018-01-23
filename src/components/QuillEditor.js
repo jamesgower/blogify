@@ -1,25 +1,34 @@
+import hljs from 'highlight.js';
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import React from 'react';
+import '../styles/dracula.css';
 
 export class QuillEditor extends React.Component {
 	constructor(props) {
 		super(props);
 
+		hljs.configure({   // optionally configure hljs
+			languages: ['javascript', 'ruby', 'python']
+		});
+
+		Quill.register('hljs', hljs);
+		
 		this.state = {
 			body: props.passedBody ? props.passedBody : '',
 			modules: {
+				syntax: true,
 				toolbar: [
-					[{ header: [1, 2, false] }],
+					[{ header: [1, 2, 3, 4, 5, false] }],
 					['bold', 'italic', 'underline', 'strike', 'blockquote'],
 					[{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
 					['link', 'image'],
-					['clean'],
 					[{ align: '' }],
 					[{ align: 'center' }],
-					[{ align: 'justify'}],
-					[{ align: 'right' }]
+					[{ align: 'justify' }],
+					[{ align: 'right' }],
 				],
 			},
+			theme: 'snow',
 		};
 	}
 
@@ -28,6 +37,8 @@ export class QuillEditor extends React.Component {
 		this.props.onUpdate(value);
 	};
 
+	
+
 	render() {
 		return (
 			<ReactQuill
@@ -35,6 +46,7 @@ export class QuillEditor extends React.Component {
 				onChange={this.update}
 				className="editor"
 				modules={this.state.modules}
+				theme={this.state.theme}
 			/>
 		);
 	}
