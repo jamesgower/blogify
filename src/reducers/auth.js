@@ -3,9 +3,12 @@ export default (state = {}, action) => {
 		case 'LOGIN':
 			return {
 				uid: action.uid,
+				loggedIn: true
 			};
 		case 'LOGOUT':
-			return {};
+			return {
+				loggedIn: false
+			};
 		default:
 			return state;
 	}

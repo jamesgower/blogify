@@ -7,7 +7,7 @@ export default (state = postsReducerDefaultState, action) => {
 	case 'REMOVE_POST':
 		return state.filter(({ id }) => id !== action.id);
 	case 'EDIT_POST':
-		return state.map((post) => {
+		return state.map(post => {
 			if (post.id === action.id) {
 				return {
 					...post,
@@ -18,6 +18,8 @@ export default (state = postsReducerDefaultState, action) => {
 			}
 		});
 	case 'SET_POSTS':
+		return action.posts;
+	case 'SET_ALL_POSTS':
 		return action.posts;
 	default:
 		return state;

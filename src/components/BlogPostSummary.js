@@ -33,7 +33,6 @@ const mapStateToProps = state => {
 	return {
 		postCount: myVisiblePosts.length,
 		auth: state.auth,
-		searchCount: state.search.length
 	};
 };
 

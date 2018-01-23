@@ -7,7 +7,7 @@ import {
 	startLoginWithTwitter,
 } from '../actions/auth';
 import { Link } from 'react-router-dom';
-import { startGetAllPosts } from '../actions/search';
+import { startGetAllPosts } from '../actions/posts';
 
 export class LoginPage extends React.Component {
 	constructor(props) {
