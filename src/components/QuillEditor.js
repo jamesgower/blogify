@@ -6,17 +6,10 @@ import '../styles/dracula.css';
 export class QuillEditor extends React.Component {
 	constructor(props) {
 		super(props);
-
-		hljs.configure({   // optionally configure hljs
-			languages: ['javascript', 'ruby', 'python']
-		});
-
-		Quill.register('hljs', hljs);
 		
 		this.state = {
 			body: props.passedBody ? props.passedBody : '',
 			modules: {
-				syntax: true,
 				toolbar: [
 					[{ header: [1, 2, 3, 4, 5, false] }],
 					['bold', 'italic', 'underline', 'strike', 'blockquote'],
@@ -36,8 +29,6 @@ export class QuillEditor extends React.Component {
 		this.setState({ body: value });
 		this.props.onUpdate(value);
 	};
-
-	
 
 	render() {
 		return (
