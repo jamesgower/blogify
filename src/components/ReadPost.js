@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import BlogPostForm from '../components/BlogPostForm';
 import moment from 'moment';
-
+import { getHTML } from 'quill';
+import ReadQuillEditor from './ReadQuillEditor';
 export class ReadPost extends React.Component {
 	constructor(props) {
 		super(props);
@@ -19,14 +20,20 @@ export class ReadPost extends React.Component {
 		};
 	}
 
+	onUpdate = val => {
+		this.setState({
+			body: val,
+		});
+	};
+
 	render() {
 		return (
 			<div>
 				<Header />
 				<div className="content-container">
 					<h1>{this.state.title}</h1>
-					{this.state.body}
-					
+					<ReadQuillEditor passedBody={this.state.body}/>
+					<h3> created by {this.state.author} on {this.state.createdAt.format('Do MMMM YYYY')}</h3>			
 				</div>
 			</div>
 		);

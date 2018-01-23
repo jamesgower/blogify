@@ -136,7 +136,6 @@ export default class BlogPostForm extends React.Component {
 						isOutsideRange={() => false}
 						displayFormat={'DD/MM/YYYY'}
 						id="singleDatePicker"
-						openDirection={this.state.openDirection}
 					/>
 				</div>
 				<div className="content-container">
