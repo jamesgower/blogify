@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BlogPostForm from './BlogPostForm';
-import { startEditPost, startRemovePost } from '../actions/posts';
+import { startEditPost } from '../actions/posts';
 
 export class EditPostPage extends React.Component {
 	constructor() {
@@ -10,11 +10,6 @@ export class EditPostPage extends React.Component {
 
 	onSubmit = post => {
 		this.props.startEditPost(this.props.post.id, post);
-		this.props.history.push('/');
-	};
-
-	onRemove = () => {
-		this.props.startRemovePost({ id: this.props.post.id });
 		this.props.history.push('/');
 	};
 
@@ -29,13 +24,6 @@ export class EditPostPage extends React.Component {
 				<div className="content-container">
 					<BlogPostForm post={this.props.post} onSubmit={this.onSubmit} />
 				</div>
-				<div className="content-container">
-					<div id="button-container--remove">
-						<button className="button__secondary" onClick={this.onRemove}>
-							Remove Post
-						</button>
-					</div>
-				</div>
 			</div>
 		);
 	}
@@ -47,7 +35,6 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
 	startEditPost: (id, post) => dispatch(startEditPost(id, post)),
-	startRemovePost: data => dispatch(startRemovePost(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPostPage);

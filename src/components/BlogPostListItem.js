@@ -20,7 +20,8 @@ export class BlogPostListItem extends React.Component {
 						<span className="list-item__subtitle"> {moment(this.props.createdAt).format('DD MMMM, YYYY')}</span>
 					</h5>
 					<h6 className="list-item__email"> -{this.props.email}</h6>
-					<div className="list-item__tags"> {this.props.tags.map((tag) => <label className='react-tags' key={tag}> {tag} </label>)} </div>
+					<div className="list-item__tags"> {this.props.tags.sort().map((tag) => <label className= {`react-tagsinput-tag ${tag.toLowerCase()}`} key={tag}> {tag} </label>)} </div>
+
 				</div>
 			</Link>
 		);

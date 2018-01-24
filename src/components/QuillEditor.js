@@ -1,6 +1,6 @@
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import React from 'react';
-import '../styles/dracula.css';
+import '../styles/vs2015.css';
 import hljs from 'highlight.js';
 
 export class QuillEditor extends React.Component {
@@ -8,7 +8,6 @@ export class QuillEditor extends React.Component {
 		super(props);
 
 		hljs.configure({
-			// optionally configure hljs
 			languages: ['javascript', 'css', 'html'],
 			tabReplace: '    ',
 		});

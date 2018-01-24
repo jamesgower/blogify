@@ -1,108 +1,102 @@
 .button {
-    background: $blue;
-    border: none;
-    color: white;
-    display: inline-block;
-    font-weight: 300;
-    font-size: $font-size-large;
-    line-height: 1;
-    padding: $s-size;    
-    text-decoration: none;
-    border-radius: 10px;
+	background: $blue;
+	border: none;
+	color: white;
+	display: inline-block;
+	font-weight: 300;
+	font-size: $font-size-large;
+	line-height: 1;
+	padding: $s-size;
+	text-decoration: none;
+	border-radius: 10px;
 }
 
 .button__link {
-    background: none;
-    &:hover {
-        text-decoration: underline;
-    }
+	background: none;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .button__success {
-    @extend .button;
-    background: #68d321;
-    width: 60px;
+	@extend .button;
+	background: #68d321;
+	width: 60px;
 }
 
 .button__fail {
-    @extend .button;
-    background: #ef3726;
-    width: 60px;    
-}
-
-.button__secondary {
-    @extend .button;
-    background: #888;
-    display: block;
-    right: 0;
-    width: 140px;
+	@extend .button;
+	background: #ef3726;
+	width: 60px;
 }
 
 .button__container {
-    max-width: 77rem;
-    margin: 0 auto;
-    position: relative;
+	max-width: 77rem;
+	margin: 0 auto;
+	position: relative;
 }
 
 .button-modal__container {
-    width: 45%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
+	width: 45%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
 }
 
 .button__login {
-    @extend .button;
-    width: 40px;
-    text-align: center;
-    display: inline-block;
-    margin: 0px 5px 5px 5px;
+	@extend .button;
+	width: 40px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px 5px 5px;
 }
 
 .button__login--google {
-    background: #ff4242;
+	background: #ff4242;
 }
 
 .button__login--github {
-    background: #000000;
+	background: #000000;
 }
 
 .button__login--facebook {
-    background: #4761a2;
+	background: #4761a2;
 }
 
 .button__login--twitter {
-    background: #1f9fee;
+	background: #1f9fee;
 }
 
 .fa {
-    align-content: center;
+	align-content: center;
 }
-
 .button__remove {
-    width: 50%;
-    float: right;
+	@extend .button;
+	background: #888;
+	float: left;
+	width: 140px;
+	margin-bottom: 80px;
+	margin-top: 30px;
+    margin-right: 10px;
+	text-align: center !important;    
 }
 
-.button--addPost {
-    float: right;
-    width: 140px;
-    padding-right: 20px;    
+.button__add {
+	@extend .button;
+	float: right;
+	width: 140px;
+	margin-top: 30px;
+	margin-bottom: 80px;
+	margin-right: 10px;
 }
 
 #button-container--add {
-    width: 50%;
-    float: left;
-    padding-right: 5px;
-    margin-top: 80px;
+	width: 50%;
+	float: left;
 }
 
 #button-container--remove {
-    margin-top: -106px;
-    padding-left: 5px !important;
-    width: 50%;
-    float: right;
-    position: relative;
-    z-index: 1
+	width: 50%;
+	float: right;
 }

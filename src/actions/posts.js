@@ -112,3 +112,5 @@ export const setAllPosts = posts => ({
 	type: 'SET_ALL_POSTS',
 	posts,
 });
+
+

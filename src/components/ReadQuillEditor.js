@@ -1,15 +1,14 @@
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import React from 'react';
-import '../styles/dracula.css';
 import hljs from 'highlight.js';
+import '../styles/vs2015.css';
 
 export class ReadQuillEditor extends React.Component {
 	constructor(props) {
 		super(props);
 
 		hljs.configure({
-			// optionally configure hljs
-			languages: ['javascript', 'css', 'html'],
+			languages: ['javascript', 'css', 'html', 'java', 'scss'],
 			tabReplace: '    ',
 		});
 		hljs.initHighlighting();

@@ -1,16 +1,20 @@
 import React from 'react';
 import moment from 'moment';
 import ReactQuill from 'react-quill';
+import { connect } from 'react-redux';
 import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
 import { SingleDatePicker } from 'react-dates';
 import QuillEditor from './QuillEditor';
+import { startRemovePost } from '../actions/posts';
+import { Link } from 'react-router-dom';
 
-export default class BlogPostForm extends React.Component {
+export class BlogPostForm extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			id: props.post ? props.post.id : '',
 			title: props.post ? props.post.title : '',
 			overview: props.post ? props.post.overview : '',
 			body: props.post ? props.post.body : '',
@@ -20,9 +24,13 @@ export default class BlogPostForm extends React.Component {
 			tags: props.post ? props.post.tags : [],
 			calendarFocused: false,
 			error: '',
-			openDirection: 'up'
+			openDirection: 'up',
 		};
 	}
+
+	onRemove = () => {
+		this.props.startRemovePost({ id: this.state.id });
+	};
 
 	onUpdate = val => {
 		this.setState({
@@ -86,64 +94,75 @@ export default class BlogPostForm extends React.Component {
 	};
 	render() {
 		return (
-			<form className="form" onSubmit={this.onSubmit}>
-				<input
-					type="text"
-					className="text-input"
-					placeholder="Title"
-					autoFocus
-					value={this.state.title}
-					onChange={this.onTitleChange}
-				/>
-				<input
-					type="text"
-					className="text-input"
-					placeholder="Enter the overview of the current post"
-					value={this.state.overview}
-					onChange={this.onOverviewChange}
-				/>
-				<QuillEditor passedBody={this.state.body} onUpdate={this.onUpdate} />
-				<div>
+			<div>
+				<form className="form" onSubmit={this.onSubmit}>
 					<input
 						type="text"
-						className="text-input text-input--author"
-						placeholder="Enter Author name"
-						value={this.state.author}
-						onChange={this.onAuthorChange}
+						className="text-input"
+						placeholder="Title"
+						autoFocus
+						value={this.state.title}
+						onChange={this.onTitleChange}
 					/>
 					<input
-						type="email"
-						className="text-input text-input--email"
-						placeholder="Enter email address of Author"
-						value={this.state.email}
-						onChange={this.onEmailChange}
+						type="text"
+						className="text-input"
+						placeholder="Enter the overview of the current post"
+						value={this.state.overview}
+						onChange={this.onOverviewChange}
 					/>
-				</div>
-				<div id="tags-input">
-					<TagsInput
-						value={this.state.tags}
-						onChange={this.handleTagChange}
-						onlyUnique={true}
-						addOnPaste={true}
-						className="react-tagsinput"
-					/>
-					<SingleDatePicker
-						date={this.state.createdAt}
-						onDateChange={this.onDateChange}
-						focused={this.state.calendarFocused}
-						onFocusChange={this.onFocusChange}
-						numberOfMonths={1}
-						isOutsideRange={() => false}
-						displayFormat={'DD/MM/YYYY'}
-						id="singleDatePicker"
-					/>
-				</div>
+					<QuillEditor passedBody={this.state.body} onUpdate={this.onUpdate} />
+					<div>
+						<input
+							type="text"
+							className="text-input text-input--author"
+							placeholder="Enter Author name"
+							value={this.state.author}
+							onChange={this.onAuthorChange}
+						/>
+						<input
+							type="email"
+							className="text-input text-input--email"
+							placeholder="Enter email address of Author"
+							value={this.state.email}
+							onChange={this.onEmailChange}
+						/>
+					</div>
+					<div id="tags-input">
+						<TagsInput
+							value={this.state.tags}
+							onChange={this.handleTagChange}
+							onlyUnique={true}
+							addOnPaste={true}
+							className="react-tagsinput"
+						/>
+						<SingleDatePicker
+							date={this.state.createdAt}
+							onDateChange={this.onDateChange}
+							focused={this.state.calendarFocused}
+							onFocusChange={this.onFocusChange}
+							numberOfMonths={1}
+							isOutsideRange={() => false}
+							displayFormat={'DD/MM/YYYY'}
+							id="singleDatePicker"
+						/>
+					</div>
+				</form>
 				<div className="content-container">
 					<div id="button-container--add">
-						<button className="button button--addPost">{this.props.post ? 'Save Post' : 'Add Post'}</button>
+						<button onClick={this.onSubmit} className="button__add">{this.props.post ? 'Save Post' : 'Add Post'}</button>
+					</div>
+					<div id="button-container--remove">
+						<Link to="/" className="button__remove" onClick={this.props.post ? this.onRemove : ''}> Remove Post</Link>
 					</div>
 				</div>
-			</form>
+			</div>
 		);
 	}
 }
+
+const mapDispatchToProps = (dispatch, props) => ({
+	startRemovePost: data => dispatch(startRemovePost(data)),
+});
+
+export default connect(undefined, mapDispatchToProps)(BlogPostForm);
