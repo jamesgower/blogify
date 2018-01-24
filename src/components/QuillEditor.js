@@ -8,7 +8,6 @@ export class QuillEditor extends React.Component {
 		super(props);
 
 		hljs.configure({
-			languages: ['javascript', 'css', 'html'],
 			tabReplace: '    ',
 		});
 		hljs.initHighlighting();

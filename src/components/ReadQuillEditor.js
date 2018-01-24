@@ -1,16 +1,10 @@
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import React from 'react';
-import hljs from 'highlight.js';
 import '../styles/vs2015.css';
 
 export class ReadQuillEditor extends React.Component {
 	constructor(props) {
 		super(props);
-
-		hljs.configure({
-			tabReplace: '    ',
-		});
-		hljs.initHighlighting();
 
 		this.state = {
 			body: props.passedBody ? props.passedBody : '',
