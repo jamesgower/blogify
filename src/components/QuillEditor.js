@@ -28,6 +28,9 @@ export class QuillEditor extends React.Component {
 					[{ align: 'right' }],
 					['code-block'],					
 				],
+				clipboard: {
+					matchVisual: false
+				}
 			},
 			theme: 'snow',
 		};
