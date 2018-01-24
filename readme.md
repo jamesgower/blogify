@@ -4,7 +4,7 @@ A React 16 project application built after completing Andrew Mead's React course
 It's a work in progress, and was built solely to test my React and Redux capabilities.
 
 #### Technologies Used
-- React16
+- React 16
 - Redux
 - React-Redux
 - React-Router-Dom
