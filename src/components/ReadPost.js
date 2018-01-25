@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import BlogPostForm from '../components/BlogPostForm';
 import moment from 'moment';
 import ReadQuillEditor from './ReadQuillEditor';
 export class ReadPost extends React.Component {

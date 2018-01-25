@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import ReactQuill from 'react-quill';
 import { connect } from 'react-redux';
 import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
@@ -161,7 +160,7 @@ export class BlogPostForm extends React.Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
 	startRemovePost: data => dispatch(startRemovePost(data)),
 });
 

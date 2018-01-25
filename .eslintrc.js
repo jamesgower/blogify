@@ -4,7 +4,7 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended"],
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
@@ -21,9 +21,11 @@ module.exports = {
         "no-unused-vars": [
             "warn",
         ],
-        "jsx-uses-vars": [
-            0
+        "react/jsx-uses-react": [
+            2
         ],
+        "react/no-unknown-property" : [ 2 ],
+        "react/jsx-uses-vars": [2],
         "indent": [
             "warn",
             "tab"

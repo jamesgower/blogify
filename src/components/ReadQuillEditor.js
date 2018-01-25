@@ -1,4 +1,4 @@
-import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
+import ReactQuill from 'react-quill';
 import React from 'react';
 import '../styles/vs2015.css';
 
@@ -26,6 +26,7 @@ export class ReadQuillEditor extends React.Component {
 				readOnly={true}
 				className="readOnlyEditor"
 			/>
+			
 		);
 	}
 }

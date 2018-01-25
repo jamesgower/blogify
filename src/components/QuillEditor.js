@@ -1,4 +1,4 @@
-import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
+import ReactQuill from 'react-quill';
 import React from 'react';
 import '../styles/vs2015.css';
 import hljs from 'highlight.js';
