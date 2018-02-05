@@ -20,10 +20,14 @@ export class BlogPostList extends React.Component {
 							<span>No posts</span>
 						</div>
 					) : (
-						this.props.posts.map(post => {
+						this.props.posts.map((post, i) => {
+							while(i < 10) {
+							i++
 							return <BlogPostListItem key={post.id} {...post} />;
+							}
 						})
 					)}
+					{this.props.posts.length > 10 && <button>Next Page</button>}
 				</div>
 			</div>
 		);

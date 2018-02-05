@@ -152,7 +152,7 @@ export class BlogPostForm extends React.Component {
 						<button onClick={this.onSubmit} className="button__add">{this.props.post ? 'Save Post' : 'Add Post'}</button>
 					</div>
 					<div id="button-container--remove">
-						<Link to="/" className="button__remove" onClick={this.props.post ? this.onRemove : null}> Remove Post</Link>
+						<Link to="/" className="button__remove" onClick={this.props.post && this.onRemove}> Remove Post</Link>
 					</div>
 				</div>
 			</div>
