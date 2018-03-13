@@ -21,9 +21,9 @@ export class BlogPostList extends React.Component {
 						</div>
 					) : (
 						this.props.posts.map((post, i) => {
-							while(i < 10) {
-							i++
-							return <BlogPostListItem key={post.id} {...post} />;
+							while (i < 10) {
+								i++;
+								return <BlogPostListItem key={post.id} {...post} />;
 							}
 						})
 					)}

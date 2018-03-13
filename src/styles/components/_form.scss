@@ -12,8 +12,11 @@
     font-style: italic
 }
 
-.editor {
-    padding-bottom: 46px;
+#editor {
+    padding-bottom: 2px;
+}
+
+#editor > .ql-container {
     min-height: 400px;
 }
 

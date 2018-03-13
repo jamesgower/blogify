@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByTags, sortByTitle, setStartDate, setEndDate, sortByAuthor } from '../actions/filters';
+import moment from 'moment';
 
 export class BlogPostListFilters extends React.Component {
 	state = {
@@ -50,7 +51,7 @@ export class BlogPostListFilters extends React.Component {
 					</div>
 					<div className="input-group__item">
 						<DateRangePicker
-							startDate={this.props.filters.startDate}
+							startDate={moment('Mon Jan 01 2018 00:00:00 GMT+0000 (GMT Standard Time)')}
 							endDate={this.props.filters.endDate}
 							onDatesChange={this.onDatesChange}
 							focusedInput={this.state.calendarFocused}

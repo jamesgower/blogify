@@ -45,7 +45,7 @@ export class QuillEditor extends React.Component {
 			<ReactQuill
 				value={this.state.body}
 				onChange={this.update}
-				className="editor"
+				id="editor"
 				modules={this.state.modules}
 				theme={this.state.theme}
 			/>
