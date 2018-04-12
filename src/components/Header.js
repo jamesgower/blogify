@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
+import { Button } from 'reactstrap';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -17,13 +18,13 @@ export class Header extends React.Component {
 							<h1>Blogify</h1>
 						</Link>
 						{this.props.auth.uid ? (
-							<button className="button button__link" onClick={this.props.startLogout}>
+							<Button color="primary" size="lg" onClick={this.props.startLogout}>
 								Logout
-							</button>
+							</Button>
 						) : (
-							<Link className="button button__link" to="/">
+							<Button color="danger" size="lg" onClick={() => (location.href = '/')}>
 								Login
-							</Link>
+							</Button>
 						)}
 					</div>
 				</div>

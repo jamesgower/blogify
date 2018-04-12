@@ -10,24 +10,38 @@ export class BlogPostListItem extends React.Component {
 
 	render() {
 		return (
-			<Link className="list-item" to={this.props.auth.uid ? `edit/${this.props.id}` : `read/${this.props.id}`}>
+			<Link
+				className="list-item"
+				to={this.props.auth.uid === this.props.userId ? `edit/${this.props.id}` : `read/${this.props.id}`}
+			>
 				<div>
-					<h3 className="list-item__title">{this.props.title}</h3>
-					<h4>{this.props.overview}</h4>
-					<h5>
-						Written by {this.props.author} on
-						<span className="list-item__subtitle"> {moment(this.props.createdAt).format('DD MMMM, YYYY')}</span>
+					<h3	className="list-item__title">
+						{this.props.title}
+					</h3>
+					<h4 className="list-item__overview">
+						{this.props.overview}
+					</h4>
+					<h5 className="list-item__date"	>
+						Written by <em>{this.props.author}</em> on 
+						<span>
+							{' '}{moment(this.props.createdAt).format('DD MMMM, YYYY')}
+						</span>
 					</h5>
 					<h6 className="list-item__email"> -{this.props.email}</h6>
-					<div className="list-item__tags"> {this.props.tags.sort().map((tag) => <label className= {`react-tagsinput-tag ${tag.toLowerCase()}`} key={tag}> {tag} </label>)} </div>
-
+					<div className="list-item__tags">
+						{this.props.tags.sort().map(tag => (
+							<label className={`react-tagsinput-tag ${tag.toLowerCase()}`} key={tag}>
+								{tag}
+							</label>
+						))}
+					</div>
 				</div>
 			</Link>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return {
 		auth: state.auth,
 	};

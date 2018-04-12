@@ -41,7 +41,7 @@ export class BlogPostListFilters extends React.Component {
 							onChange={this.onTextChange}
 						/>
 					</div>
-					<div className="input-group__item">
+					<div className="input-group__item input__filter">
 
 						<select className="select" value={this.props.filters.sortBy} onChange={this.onSortChange}>
 							<option value="title">Title</option>
@@ -59,6 +59,7 @@ export class BlogPostListFilters extends React.Component {
 							showClearDates={true}
 							numberOfMonths={1}
 							isOutsideRange={() => false}
+							displayFormat="DD MMM YYYY"
 						/>
 					</div>
 				</div>

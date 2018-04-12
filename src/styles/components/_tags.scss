@@ -1,57 +1,59 @@
-.javascript, .jquery, {
-      background-color: yellow !important;
-      color: black !important;
-      border: 2px solid black !important;      
-      @extend .react-tagsinput-tag
+.javascript,
+.jquery {
+  background-color: yellow !important;
+  @extend .react-tagsinput-tag;
 }
 
-.html, .html5 {
+.html,
+.html5 {
   background-color: orange !important;
-  color: white !important;
-  border: 2px solid black !important;        
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
-.git, .github {
+.git,
+.github {
   background-color: black !important;
   color: white !important;
-  border: 2px solid black !important;        
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
-.css, .scss, .sass {
+.css,
+.scss,
+.sass {
   background-color: #0989f2 !important;
-  color: white !important;
-  border: 2px solid black !important;        
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
-.react, .react16, .react15, .redux { 
+.react,
+.react16,
+.react15,
+.redux {
   background-color: blueviolet !important;
-  color: white !important;
-  border: 2px solid black !important;         
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
-.angular, .angularJS, .angular2, .angular3, .angular5 {
+.angular,
+.angularJS,
+.angular2,
+.angular3,
+.angular5 {
   background-color: red !important;
-  color: white !important;
-  border: 2px solid black !important;    
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
-.facebook, .twitter, .reddit, .social, .me, .google {
-  background-color: #EE86FF !important;
-  color: white !important;
-  border: 2px solid black !important;       
-  @extend .react-tagsinput-tag
+.facebook,
+.twitter,
+.reddit,
+.social,
+.me,
+.google {
+  background-color: #ee86ff !important;
+  @extend .react-tagsinput-tag;
 }
 
 .test {
   background-color: #ff00ee !important;
-  color: white !important;
-  border: 2px solid black !important; 
-  @extend .react-tagsinput-tag
+  @extend .react-tagsinput-tag;
 }
 
 .react-tagsinput {
@@ -60,7 +62,9 @@
   overflow: hidden;
   padding-left: 5px;
   padding-top: 5px;
-  @extend .text-input--tags ;
+  line-height: 18px;
+  height: 40px;
+  @extend .text-input--tags;
 }
 
 .react-tagsinput--focused {
@@ -69,19 +73,17 @@
 
 .react-tagsinput-tag {
   background-color: $blue;
-  border: 2px solid black !important;   
-  color: $off-white;
-  border-radius: 10px;
+  border: 1px solid black !important;
+  color: white;
+  border-radius: 3px;
   display: inline-block;
   font-family: sans-serif;
-  font-size: 13px;
+  font-size: 10px;
   margin-top: 3px;
-  margin-bottom: 5px;
   margin-right: 5px;
-  padding: 5px 10px 5px 10px;
+  padding: 2px 5px 2px 5px;
   min-width: 40px;
   text-align: center;
-  font-weight: bold;
 }
 
 .react-tagsinput-remove {
@@ -90,7 +92,7 @@
 }
 
 .react-tagsinput-tag a::before {
-  content: " ×";
+  content: ' ×';
 }
 
 .react-tagsinput-input {

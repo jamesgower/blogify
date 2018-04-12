@@ -8,8 +8,8 @@ export const addPost = post => ({
 export const startAddPost = (postData = {}) => {
 	return (dispatch, getState) => {
 		const uid = getState().auth.uid;
-		const { title = '', overview = '', body = '', author = '', email = '', tags = [], createdAt = 0 } = postData;
-		const post = { title, overview, body, author, email, tags, createdAt };
+		const { title = '', overview = '', body = '', author = '', email = '', tags = [], createdAt = 0, userId = uid } = postData;
+		const post = { title, overview, body, author, email, tags, createdAt, userId };
 
 		return database
 			.ref(`users/${uid}/posts`)

@@ -4,32 +4,41 @@
     font-size: $font-size-large;
     font-weight: 300;
     padding: $s-size;
+    font-family: 'Roboto', serif !important;  
+    @media (max-width: $desktop-breakpoint) {
+        height: 40px;
+        font-size: 12px;
+    }
 }
 
 .text-input--search {
-    width: 28rem;
+    width: 100%;
+    font-family: 'Roboto', serif !important; 
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 26rem !important;
+    }                 
 }
 
 .text-input--author {
     width: 48%;
     float: left;
+    font-family: 'Roboto', serif !important;            
 }
 
 .text-input--email {
     width: 48%;
     float: right;
-    
+    font-family: 'Roboto', serif !important;            
 }
 
 .text-input--tags {
     width: 100%;
     height: 50px;
+    font-family: 'Roboto', serif !important;            
 }
-
 
 .select {
     @extend .text-input;
-    width: 107px;
 }
 
 .textarea {
@@ -42,7 +51,7 @@
     border: 2px solid red;
     margin-bottom: 20px;
     height: 55px !important;
-
+    font-family: 'Roboto', serif !important;         
 }
 
 #tags-input {
@@ -51,4 +60,27 @@
     padding-left: 1px;
     display: block;
     margin-bottom: 10px;
+    font-family: 'Roboto', serif !important;            
+}
+
+.DateRangePickerInput {
+    @media (max-width: $desktop-breakpoint) {
+        width: 100% !important;
+    }
+}
+
+.DateInput {
+    @media (max-width: $desktop-breakpoint) {
+        font-size: $font-size-small !important;
+        width: 100px !important;
+        margin-right: 5px !important;
+        height: 40px !important;
+        line-height: 40px;
+    }
+}
+
+.DateInput__input {
+    @media (max-width: $desktop-breakpoint) {
+        width: 100px !important;
+    }
 }
