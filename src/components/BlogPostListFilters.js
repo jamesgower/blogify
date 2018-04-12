@@ -41,7 +41,7 @@ export class BlogPostListFilters extends React.Component {
 							onChange={this.onTextChange}
 						/>
 					</div>
-					<div className="input-group__item input__filter">
+					<div className="input-group__item">
 
 						<select className="select" value={this.props.filters.sortBy} onChange={this.onSortChange}>
 							<option value="title">Title</option>

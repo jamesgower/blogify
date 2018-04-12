@@ -29,9 +29,9 @@ export class ReadPost extends React.Component {
 			<div>
 				<Header />
 				<div className="content-container">
-					<h1 className="readPost__title">{this.state.title}</h1>
+					<h1 className="readPost__title" style={{marginTop: '20px'}}>{this.state.title}</h1>
 					<ReadQuillEditor passedBody={this.state.body}/>
-					<h4> - created by {this.state.author} on {this.state.createdAt.format('Do MMMM YYYY')}</h4>			
+					<h4 style={{margin: '20px 40px 80px 40px', fontStyle: 'italic'}}> - created by {this.state.author} on {this.state.createdAt.format('Do MMMM YYYY')}</h4>			
 				</div>
 			</div>
 		);
